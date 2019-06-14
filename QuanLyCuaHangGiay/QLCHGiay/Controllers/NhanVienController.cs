@@ -52,5 +52,29 @@ namespace QLCHGiay.Controllers
             }
             return Ok();
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest("Not a valid model");
+
+                NhanVienDAO.Instance.DeleteNv(id);
+
+            }
+            catch (Exception)
+            {
+
+            }
+            return Ok();
+        }
+
+        [HttpGet]
+        public IHttpActionResult TimKiemNhanVien(string TenNV)
+        {
+            List<NhanVienDTO> item = NhanVienDAO.Instance.SearchNv(TenNV);
+            return Ok(item);
+        }
     }
 }

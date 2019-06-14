@@ -16,7 +16,7 @@ namespace QLCHGiay.Controllers
         [HttpGet]
         public IHttpActionResult Get()
         {
-            DataTable item = KhuyenMaiDAO.Instance.GetKhuyenMai();
+            List<KhuyenMaiDTO> item = KhuyenMaiDAO.Instance.GetKhuyenMai();
             return Ok(item);
         }
 
@@ -29,38 +29,56 @@ namespace QLCHGiay.Controllers
                     return BadRequest("Not a valid model");
 
                 KhuyenMaiDAO.Instance.InsertKM(x.TenCT, x.MoTa, x.NgayBD, x.NgayKT, x.ChietKhau);
+
             }
-            catch (Exception) { }
-            return  Ok();
+            catch (Exception)
+            {
+
+            }
+            return Ok();
         }
 
         [HttpPut]
         public IHttpActionResult Put(KhuyenMaiDTO x)
         {
-            if (!ModelState.IsValid)
-                return BadRequest("Not a valid data");
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest("Not a valid model");
+                //int idkm, string tenct, string mota, DateTime ngaybd, DateTime ngaykt, float chietkhau
+                KhuyenMaiDAO.Instance.UpdateKM(x.MaKM,x.TenCT,x.MoTa,x.NgayBD,x.NgayKT,x.ChietKhau);
 
-            KhuyenMaiDAO.Instance.UpdateKM(x.MaKM, x.TenCT, x.MoTa, x.NgayBD, x.NgayKT, x.ChietKhau);
+            }
+            catch (Exception)
+            {
+
+            }
             return Ok();
         }
 
-        //public IHttpActionResult Delete([FromUri] int id)
-        //{
-        //    if (id <= 0)
-        //        return BadRequest("Not a valid student id");
-        //    KhuyenMaiDAO.Instance.DeleteKM(id);
-        //    return Ok();
-        //}
+        public IHttpActionResult Delete(int id)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest("Not a valid model");
 
-        //[HttpGet]
-        //public IHttpActionResult TimKiemSinhvienThiLai([FromUri]string TenCT)
-        //{
-        //    List<KhuyenMaiDTO> item = KhuyenMaiDAO.Instance.SearchKM(TenCT);
-        //    if (item.Count == 0)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(item);
-        //}
+                KhuyenMaiDAO.Instance.DeleteKM(id);
+
+            }
+            catch (Exception)
+            {
+
+            }
+            return Ok();
+        }
+
+        [HttpGet]
+        public IHttpActionResult TimKiemKM(string TenCT)
+        {
+            List<KhuyenMaiDTO> item = KhuyenMaiDAO.Instance.SearchKM(TenCT);
+            return Ok(item);
+        }
+
     }
 }

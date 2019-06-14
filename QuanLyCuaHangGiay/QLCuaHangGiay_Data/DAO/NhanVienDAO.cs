@@ -51,12 +51,14 @@ namespace QLCuaHangGiay_Data.DAO
                 " where IDNhanVien = " + manv;
             return DataProvider.Instance.ExecuteNonQuery(query);
         }
-        public bool DeleteNv(int manv)
+
+        public int DeleteNv(int manv)
         {
             int result = DataProvider.Instance.ExecuteNonQuery(" EXEC dbo.USP_DeleteNhanVien @manv ", new object[] { manv });
 
-            return result > 0;
+            return result;
         }
+
         public List<NhanVienDTO> SearchNv(string str)
         {
             List<NhanVienDTO> NvList = new List<NhanVienDTO>();

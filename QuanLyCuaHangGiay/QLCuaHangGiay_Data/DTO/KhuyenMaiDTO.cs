@@ -52,7 +52,8 @@ namespace QLCuaHangGiay_Data.DTO
             get { return chietKhau; }
             set { chietKhau = value; }
         }
-        //[JsonConstructor]
+        public KhuyenMaiDTO() { }
+
         public KhuyenMaiDTO(string TenCT, string MoTa, DateTime NgayBD, DateTime NgayKT, float ChietKhau)
         {
             this.tenCT = TenCT;
@@ -61,7 +62,7 @@ namespace QLCuaHangGiay_Data.DTO
             this.ngayKT = NgayKT;
             this.chietKhau = ChietKhau;
         }
-        // [JsonConstructor]
+        
         public KhuyenMaiDTO(int MaKM,string TenCT,string MoTa,DateTime NgayBD,DateTime NgayKT,float ChietKhau)
         {
             this.maKM = MaKM;
@@ -71,7 +72,17 @@ namespace QLCuaHangGiay_Data.DTO
             this.ngayKT = NgayKT;
             this.chietKhau = ChietKhau;
         }
-        
+
+        public List<CTKhuyenMai_DTO> List;
+        public KhuyenMaiDTO(List<CTKhuyenMai_DTO> list, string TenCT, string MoTa, DateTime NgayBD, DateTime NgayKT)
+        {
+            List = list;
+            this.tenCT = TenCT;
+            this.moTa = MoTa;
+            this.ngayBD = NgayBD;
+            this.ngayKT = NgayKT;
+        }
+
         public KhuyenMaiDTO(DataRow row)
         {
             Int32.TryParse(row["IDKhuyenMai"].ToString(), out this.maKM);

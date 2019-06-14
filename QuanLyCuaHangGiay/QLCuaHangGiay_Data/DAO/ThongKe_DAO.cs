@@ -8,11 +8,11 @@ using QLCuaHangGiay_Data.DTO;
 
 namespace QLCuaHangGiay_Data.DAO
 {
-    class ThongKe_DAO
+    public class ThongKe_DAO
     {
         private static ThongKe_DAO instance;
 
-        internal static ThongKe_DAO Instance
+        public static ThongKe_DAO Instance
         {
             get { if (instance == null) instance = new ThongKe_DAO(); return instance; }
             private set { instance = value;}
@@ -20,7 +20,7 @@ namespace QLCuaHangGiay_Data.DAO
         public List<ThongKe_DTO> ThongKe(DateTime tungay, DateTime denngay)
         {
             List<ThongKe_DTO> list = new List<ThongKe_DTO>();
-            DataTable data = DataProvider.Instance.ExecuteQuery(" EXEC USP_ThongKeDoanhThu @tungay , @denngay", new object[]{ tungay , denngay});
+            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_ThongKeDoanhThu @tungay , @denngay", new object[]{ tungay , denngay});
             foreach (DataRow item in data.Rows)
             {
                 ThongKe_DTO thongke = new ThongKe_DTO(item);

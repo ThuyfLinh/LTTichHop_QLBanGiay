@@ -87,6 +87,12 @@
     <Compile Include="GUI\fCTKhuyenMai.Designer.cs">
       <DependentUpon>fCTKhuyenMai.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fDangNhap.Designer.cs">
+      <DependentUpon>fDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fDoanhThu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,18 +141,6 @@
     <Compile Include="GUI\fNhanVien.Designer.cs">
       <DependentUpon>fNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fThongKe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\fThongKe.Designer.cs">
-      <DependentUpon>fThongKe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\fThongKeNV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\fThongKeNV.Designer.cs">
-      <DependentUpon>fThongKeNV.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\fCTHoaDonBan.resx">
@@ -154,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fCTKhuyenMai.resx">
       <DependentUpon>fCTKhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fDangNhap.resx">
+      <DependentUpon>fDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fDoanhThu.resx">
       <DependentUpon>fDoanhThu.cs</DependentUpon>
@@ -178,12 +175,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fNhanVien.resx">
       <DependentUpon>fNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fThongKe.resx">
-      <DependentUpon>fThongKe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fThongKeNV.resx">
-      <DependentUpon>fThongKeNV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

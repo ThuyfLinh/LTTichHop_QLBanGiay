@@ -148,7 +148,7 @@ namespace QLCuaHangGiay.GUI
                 client.BaseAddress = new Uri(baseAddress);
 
                 var url = baseAddress + "Giay/" + id;  
-                //HTTP PUT
+                //HTTP PUT 
                 var postTask = client.DeleteAsync(url);
 
                 postTask.Wait();

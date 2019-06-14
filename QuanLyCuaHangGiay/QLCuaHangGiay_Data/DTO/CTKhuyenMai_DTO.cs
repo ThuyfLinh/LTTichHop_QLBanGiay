@@ -23,10 +23,15 @@ namespace QLCuaHangGiay_Data.DTO
             get { return maGiay; }
             set { maGiay = value; }
         }
-        public float ChietKhau
+        public float CK
         {
             get { return chietKhau; }
             set { chietKhau = value; }
+        }
+        public CTKhuyenMai_DTO(int MaKM, int MaGiay)
+        {
+            this.maKM = MaKM;
+            this.maKM = MaGiay;
         }
         public CTKhuyenMai_DTO()
         {
@@ -34,7 +39,7 @@ namespace QLCuaHangGiay_Data.DTO
             maGiay = 0;
             chietKhau = 0;
         }
-        public CTKhuyenMai_DTO(int MaKM,int MaGiay , float ChietKhau)
+        public CTKhuyenMai_DTO(int MaKM, int MaGiay , float ChietKhau)
         {
             this.maKM = MaKM;
             this.maGiay = MaGiay;
@@ -42,10 +47,9 @@ namespace QLCuaHangGiay_Data.DTO
         }
         public CTKhuyenMai_DTO(DataRow row)
         {
-            int.TryParse(row["IDKhuyenMai"].ToString(), out this.maKM);
+            Int32.TryParse(row["IDKhuyenMai"].ToString(), out this.maKM);
             Int32.TryParse(row["IDGiay"].ToString(), out this.maGiay);
             float.TryParse(row["ChietKhau"].ToString(), out this.chietKhau);
-            
         }
     }
 }

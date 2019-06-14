@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace propg.DAO
+namespace QLCuaHangGiay_Data.DAO
 {
-    class CTKhuyenMaiDAO
+    public class CTKhuyenMaiDAO
     {
         private static CTKhuyenMaiDAO instance;
 
@@ -22,7 +22,7 @@ namespace propg.DAO
         public List<CTKhuyenMai_DTO> GetListCTKM()
         {
             List<CTKhuyenMai_DTO> ListCTKM = new List<CTKhuyenMai_DTO>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT IDGIAY,CHIETKHAU FROM CTKHUYENMAI");
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT IDKHUYENMAI,IDGIAY,CHIETKHAU FROM CTKHUYENMAI");
             foreach (DataRow item in data.Rows)
             {
                 CTKhuyenMai_DTO MaGiay = new CTKhuyenMai_DTO(item);
@@ -34,7 +34,9 @@ namespace propg.DAO
         public List<CTKhuyenMai_DTO> ListCTKM(int ID)
         {
             List<CTKhuyenMai_DTO> ListCTKM = new List<CTKhuyenMai_DTO>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_ListCTKM @ID ", new object[] { ID });
+            //DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_ListCTKM @ma ", new object[] { ID });
+            string query = "select * from CTKHUYENMAI where IDKhuyenMai = " + ID;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
                 CTKhuyenMai_DTO MaKM = new CTKhuyenMai_DTO(item);
@@ -43,14 +45,14 @@ namespace propg.DAO
             return ListCTKM;
         }
 
-        public bool InsertCTKM(int IDKM,int IDGiay, float ChietKhau)
+        public int InsertCTKM(int IDKM,int IDGiay, float ChietKhau)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery( "Insert into CTKHUYENMAI(IDKhuyenMai,IDGiay,ChietKhau) Values(" +
+            int result = DataProvider.Instance.ExecuteNonQuery("Insert into CTKHUYENMAI(IDKhuyenMai,IDGiay,ChietKhau) Values(" +
                               "N'" + IDKM + "'," +
                               "N'" + IDGiay + "'," +
                               "N'" + ChietKhau + "'" +
                                ")" );
-            return result>0;
+            return result;
         }
         public List<CTKhuyenMai_DTO> SearchKM(string str)
         {
@@ -63,15 +65,19 @@ namespace propg.DAO
             }
             return KMList;
         }
-        public bool DeleteCTKM(int idkm, int idgiay )
+
+        public int DeleteCTKM(int idkm, int idgiay)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("exec USP_DeleteCTKM @maGiay , @maKM ", new object[] { idgiay , idkm });
-            return result>0;
+            string query = "delete CTKHUYENMAI where IDGiay = " + idgiay + " and IDKhuyenMai = " + idkm;
+            //int result = DataProvider.Instance.ExecuteNonQuery("exec USP_DeleteCTKM @maGiay , @maKM ", new object[] { idgiay , idkm });
+            return DataProvider.Instance.ExecuteNonQuery(query);
         }
-        public bool UpdateCTKM(int idkm, int idgiay, int chietkhau)
+
+
+        public int UpdateCTKM(int idkm, int idgiay, int chietkhau)
         {
             int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateCT @idkm , @idgiay , @chietkhau ", new object[] { idkm, idgiay,chietkhau });
-            return result > 0;
+            return result;
         }
     }
 }

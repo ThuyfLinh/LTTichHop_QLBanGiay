@@ -20,7 +20,7 @@ namespace QLCuaHangGiay_Data.DAO
 
         public DataProvider() { }
 
-        string connectionSTR = @"Data Source=DESKTOP-IHK174L\SQL;Initial Catalog=10_QuanLyBanGiay_T5;Integrated Security=True";
+        string connectionSTR = @"Data Source=DESKTOP-IHK174L\SQL;Initial Catalog=QuanLyBanGiay;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {

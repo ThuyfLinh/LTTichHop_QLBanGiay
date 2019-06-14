@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QLCuaHangGiay.GUI;
+using QLCuaHangGiay_Data.DTO;
 
-namespace TTN
+namespace QLCuaHangGiay.GUI
 {
     public partial class fMain : MetroFramework.Forms.MetroForm
     {
+        public static fMain _frmMain;
         public fMain()
         {
             InitializeComponent();
@@ -68,17 +69,45 @@ namespace TTN
 
         private void mtDoanhThu_Click(object sender, EventArgs e)
         {
-           
+            fDoanhThu form = new fDoanhThu();
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
         }
 
-        private void mtDoanhSo_Click(object sender, EventArgs e)
+        DangNhapDTO x = new DangNhapDTO();
+        public void CheckPhanQuyen()
         {
-             fThongKeNV form = new fThongKeNV();
-             this.Hide();
-             form.ShowDialog();
-             this.Show();
+            if(x.PhanQuyen == 2)
+            {
+                mtNhanVien.Enabled = false;
+                mtGiay.Enabled = false;
+                mtKhuyenMai.Enabled = false;
+                mtDoanhThu.Enabled = false;
+                mtHoaDonBan.Enabled = true;
+                mtHoaDonNhap.Enabled = true;
+                mtKhachHang.Enabled = true;
+            }
+            else if (x.PhanQuyen == 1)
+            {
+                mtNhanVien.Enabled = true;
+                mtGiay.Enabled = true;
+                mtKhuyenMai.Enabled = true;
+                mtDoanhThu.Enabled = true;
+                mtHoaDonBan.Enabled = false;
+                mtHoaDonNhap.Enabled = false;
+                mtKhachHang.Enabled = false;
+            }
+            else if (x.PhanQuyen == 3)
+            {
+                mtNhanVien.Enabled = true;
+                mtGiay.Enabled = true;
+                mtKhuyenMai.Enabled = true;
+                mtDoanhThu.Enabled = true;
+                mtHoaDonBan.Enabled = true;
+                mtHoaDonNhap.Enabled = true;
+                mtKhachHang.Enabled = true;
+            }
         }
-
-        
     }
 }

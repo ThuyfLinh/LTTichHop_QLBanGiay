@@ -32,10 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvThongKe = new MetroFramework.Controls.MetroGrid();
-            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NguoiLap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -47,6 +43,10 @@
             this.btnThongKe = new MetroFramework.Controls.MetroButton();
             this.dtpDenNgay = new MetroFramework.Controls.MetroDateTime();
             this.dtpTuNgay = new MetroFramework.Controls.MetroDateTime();
+            this.IDHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongKe)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -69,8 +69,8 @@
             this.dgvThongKe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvThongKe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaHD,
-            this.NguoiLap,
+            this.IDHoaDon,
+            this.TenNV,
             this.SoLuong,
             this.TongTien});
             this.dgvThongKe.Cursor = System.Windows.Forms.Cursors.Default;
@@ -106,30 +106,6 @@
             this.dgvThongKe.TabIndex = 11;
             this.dgvThongKe.UseCustomBackColor = true;
             // 
-            // MaHD
-            // 
-            this.MaHD.DataPropertyName = "IDHoaDon";
-            this.MaHD.HeaderText = "Mã hóa đơn";
-            this.MaHD.Name = "MaHD";
-            // 
-            // NguoiLap
-            // 
-            this.NguoiLap.DataPropertyName = "TenNV";
-            this.NguoiLap.HeaderText = "Người lập hóa đơn";
-            this.NguoiLap.Name = "NguoiLap";
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.DataPropertyName = "SoLuong";
-            this.SoLuong.HeaderText = "Số lượng sản phẩm";
-            this.SoLuong.Name = "SoLuong";
-            // 
-            // TongTien
-            // 
-            this.TongTien.DataPropertyName = "TongTien";
-            this.TongTien.HeaderText = "Tổng tiền";
-            this.TongTien.Name = "TongTien";
-            // 
             // metroPanel1
             // 
             this.metroPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(85)))), ((int)(((byte)(106)))));
@@ -164,7 +140,7 @@
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel5.Location = new System.Drawing.Point(541, 41);
+            this.metroLabel5.Location = new System.Drawing.Point(478, 41);
             this.metroLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(48, 25);
@@ -180,7 +156,7 @@
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel4.Location = new System.Drawing.Point(293, 41);
+            this.metroLabel4.Location = new System.Drawing.Point(162, 41);
             this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(36, 25);
@@ -258,31 +234,56 @@
             // 
             // btnThongKe
             // 
-            this.btnThongKe.Location = new System.Drawing.Point(892, 32);
+            this.btnThongKe.Location = new System.Drawing.Point(870, 30);
             this.btnThongKe.Margin = new System.Windows.Forms.Padding(2);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(94, 44);
+            this.btnThongKe.Size = new System.Drawing.Size(120, 58);
             this.btnThongKe.TabIndex = 4;
             this.btnThongKe.Text = "Thống Kê";
             this.btnThongKe.UseSelectable = true;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // dtpDenNgay
             // 
-            this.dtpDenNgay.Location = new System.Drawing.Point(610, 41);
+            this.dtpDenNgay.Location = new System.Drawing.Point(530, 41);
             this.dtpDenNgay.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDenNgay.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpDenNgay.Name = "dtpDenNgay";
-            this.dtpDenNgay.Size = new System.Drawing.Size(151, 29);
+            this.dtpDenNgay.Size = new System.Drawing.Size(213, 29);
             this.dtpDenNgay.TabIndex = 3;
             // 
             // dtpTuNgay
             // 
-            this.dtpTuNgay.Location = new System.Drawing.Point(344, 41);
+            this.dtpTuNgay.Location = new System.Drawing.Point(202, 41);
             this.dtpTuNgay.Margin = new System.Windows.Forms.Padding(2);
             this.dtpTuNgay.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpTuNgay.Name = "dtpTuNgay";
-            this.dtpTuNgay.Size = new System.Drawing.Size(151, 29);
+            this.dtpTuNgay.Size = new System.Drawing.Size(193, 29);
             this.dtpTuNgay.TabIndex = 2;
+            // 
+            // IDHoaDon
+            // 
+            this.IDHoaDon.DataPropertyName = "IDHoaDon";
+            this.IDHoaDon.HeaderText = "Mã hóa đơn";
+            this.IDHoaDon.Name = "IDHoaDon";
+            // 
+            // TenNV
+            // 
+            this.TenNV.DataPropertyName = "TenNV";
+            this.TenNV.HeaderText = "Người lập hóa đơn";
+            this.TenNV.Name = "TenNV";
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "Số lượng sản phẩm";
+            this.SoLuong.Name = "SoLuong";
+            // 
+            // TongTien
+            // 
+            this.TongTien.DataPropertyName = "TongTien";
+            this.TongTien.HeaderText = "Tổng tiền";
+            this.TongTien.Name = "TongTien";
             // 
             // fDoanhThu
             // 
@@ -302,10 +303,6 @@
         #endregion
 
         private MetroFramework.Controls.MetroGrid dgvThongKe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NguoiLap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel4;
@@ -317,5 +314,9 @@
         private MetroFramework.Controls.MetroButton btnThongKe;
         private MetroFramework.Controls.MetroDateTime dtpDenNgay;
         private MetroFramework.Controls.MetroDateTime dtpTuNgay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDHoaDon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
     }
 }

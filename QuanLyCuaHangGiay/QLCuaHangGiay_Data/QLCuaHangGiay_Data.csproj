@@ -51,6 +51,7 @@
     <Compile Include="DAO\CTHoaDonBan_DAO.cs" />
     <Compile Include="DAO\CTHoaDonNhapDAO.cs" />
     <Compile Include="DAO\CTKhuyenMaiDAO.cs" />
+    <Compile Include="DAO\DangNhapDAO.cs" />
     <Compile Include="DAO\GiayDAO.cs" />
     <Compile Include="DAO\HoaDonBan_DAO.cs" />
     <Compile Include="DAO\HoaDonNhapDAO.cs" />
@@ -58,12 +59,12 @@
     <Compile Include="DAO\KhuyenMaiDAO.cs" />
     <Compile Include="DAO\NhanVienDAO.cs" />
     <Compile Include="DAO\SanPhamDAO.cs" />
-    <Compile Include="DAO\ThongKeDAO.cs" />
     <Compile Include="DAO\ThongKe_DAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DTO\CTHoaDonBan_DTO.cs" />
     <Compile Include="DTO\CTHoaDonNhapDTO.cs" />
     <Compile Include="DTO\CTKhuyenMai_DTO.cs" />
+    <Compile Include="DTO\DangNhapDTO.cs" />
     <Compile Include="DTO\Giay_DTO.cs" />
     <Compile Include="DTO\HoaDonBan_DTO.cs" />
     <Compile Include="DTO\HoaDonNhapDTO.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="DTO\MaGiay_DTO.cs" />
     <Compile Include="DTO\NhanVienDTO.cs" />
     <Compile Include="DTO\TenGiay_DTO.cs" />
-    <Compile Include="DTO\ThongKeDTO.cs" />
     <Compile Include="DTO\ThongKe_DTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

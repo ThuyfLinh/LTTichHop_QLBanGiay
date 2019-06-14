@@ -1,4 +1,4 @@
-﻿namespace TTN
+﻿namespace QLCuaHangGiay.GUI
 {
     partial class fMain
     {
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mtDoanhSo = new MetroFramework.Controls.MetroTile();
             this.mtDoanhThu = new MetroFramework.Controls.MetroTile();
             this.mtHoaDonBan = new MetroFramework.Controls.MetroTile();
             this.mtHoaDonNhap = new MetroFramework.Controls.MetroTile();
@@ -38,23 +37,10 @@
             this.mtNhanVien = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
-            // mtDoanhSo
-            // 
-            this.mtDoanhSo.Location = new System.Drawing.Point(798, 300);
-            this.mtDoanhSo.Name = "mtDoanhSo";
-            this.mtDoanhSo.Size = new System.Drawing.Size(142, 137);
-            this.mtDoanhSo.TabIndex = 15;
-            this.mtDoanhSo.Text = "DOANH SỐ";
-            this.mtDoanhSo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mtDoanhSo.TileImage = global::QLCuaHangGiay.Properties.Resources.doánho;
-            this.mtDoanhSo.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mtDoanhSo.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.mtDoanhSo.UseTileImage = true;
-            this.mtDoanhSo.Click += new System.EventHandler(this.mtDoanhSo_Click);
-            // 
             // mtDoanhThu
             // 
-            this.mtDoanhThu.Location = new System.Drawing.Point(553, 300);
+            this.mtDoanhThu.ActiveControl = null;
+            this.mtDoanhThu.Location = new System.Drawing.Point(798, 74);
             this.mtDoanhThu.Name = "mtDoanhThu";
             this.mtDoanhThu.Size = new System.Drawing.Size(142, 137);
             this.mtDoanhThu.TabIndex = 14;
@@ -63,11 +49,13 @@
             this.mtDoanhThu.TileImage = global::QLCuaHangGiay.Properties.Resources.doanhthu;
             this.mtDoanhThu.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mtDoanhThu.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.mtDoanhThu.UseSelectable = true;
             this.mtDoanhThu.UseTileImage = true;
             this.mtDoanhThu.Click += new System.EventHandler(this.mtDoanhThu_Click);
             // 
             // mtHoaDonBan
             // 
+            this.mtHoaDonBan.ActiveControl = null;
             this.mtHoaDonBan.Location = new System.Drawing.Point(297, 300);
             this.mtHoaDonBan.Name = "mtHoaDonBan";
             this.mtHoaDonBan.Size = new System.Drawing.Size(142, 137);
@@ -77,11 +65,13 @@
             this.mtHoaDonBan.TileImage = global::QLCuaHangGiay.Properties.Resources.bill2;
             this.mtHoaDonBan.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mtHoaDonBan.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.mtHoaDonBan.UseSelectable = true;
             this.mtHoaDonBan.UseTileImage = true;
             this.mtHoaDonBan.Click += new System.EventHandler(this.mtHoaDonBan_Click);
             // 
             // mtHoaDonNhap
             // 
+            this.mtHoaDonNhap.ActiveControl = null;
             this.mtHoaDonNhap.Location = new System.Drawing.Point(47, 300);
             this.mtHoaDonNhap.Name = "mtHoaDonNhap";
             this.mtHoaDonNhap.Size = new System.Drawing.Size(142, 137);
@@ -91,12 +81,14 @@
             this.mtHoaDonNhap.TileImage = global::QLCuaHangGiay.Properties.Resources.bill1;
             this.mtHoaDonNhap.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mtHoaDonNhap.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.mtHoaDonNhap.UseSelectable = true;
             this.mtHoaDonNhap.UseTileImage = true;
             this.mtHoaDonNhap.Click += new System.EventHandler(this.mtHoaDonNhap_Click);
             // 
             // mtKhuyenMai
             // 
-            this.mtKhuyenMai.Location = new System.Drawing.Point(798, 74);
+            this.mtKhuyenMai.ActiveControl = null;
+            this.mtKhuyenMai.Location = new System.Drawing.Point(553, 74);
             this.mtKhuyenMai.Name = "mtKhuyenMai";
             this.mtKhuyenMai.Size = new System.Drawing.Size(142, 137);
             this.mtKhuyenMai.TabIndex = 11;
@@ -105,12 +97,14 @@
             this.mtKhuyenMai.TileImage = global::QLCuaHangGiay.Properties.Resources.sale;
             this.mtKhuyenMai.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mtKhuyenMai.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.mtKhuyenMai.UseSelectable = true;
             this.mtKhuyenMai.UseTileImage = true;
             this.mtKhuyenMai.Click += new System.EventHandler(this.mtKhuyenMai_Click);
             // 
             // mtGiay
             // 
-            this.mtGiay.Location = new System.Drawing.Point(553, 74);
+            this.mtGiay.ActiveControl = null;
+            this.mtGiay.Location = new System.Drawing.Point(297, 74);
             this.mtGiay.Name = "mtGiay";
             this.mtGiay.Size = new System.Drawing.Size(142, 137);
             this.mtGiay.TabIndex = 10;
@@ -119,12 +113,14 @@
             this.mtGiay.TileImage = global::QLCuaHangGiay.Properties.Resources.giay;
             this.mtGiay.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mtGiay.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.mtGiay.UseSelectable = true;
             this.mtGiay.UseTileImage = true;
             this.mtGiay.Click += new System.EventHandler(this.mtGiay_Click);
             // 
             // mtKhachHang
             // 
-            this.mtKhachHang.Location = new System.Drawing.Point(297, 74);
+            this.mtKhachHang.ActiveControl = null;
+            this.mtKhachHang.Location = new System.Drawing.Point(553, 289);
             this.mtKhachHang.Name = "mtKhachHang";
             this.mtKhachHang.Size = new System.Drawing.Size(142, 137);
             this.mtKhachHang.TabIndex = 9;
@@ -133,11 +129,13 @@
             this.mtKhachHang.TileImage = global::QLCuaHangGiay.Properties.Resources.nhanvien;
             this.mtKhachHang.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mtKhachHang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.mtKhachHang.UseSelectable = true;
             this.mtKhachHang.UseTileImage = true;
             this.mtKhachHang.Click += new System.EventHandler(this.mtKhachHang_Click);
             // 
             // mtNhanVien
             // 
+            this.mtNhanVien.ActiveControl = null;
             this.mtNhanVien.Location = new System.Drawing.Point(47, 74);
             this.mtNhanVien.Name = "mtNhanVien";
             this.mtNhanVien.Size = new System.Drawing.Size(142, 137);
@@ -147,6 +145,7 @@
             this.mtNhanVien.TileImage = global::QLCuaHangGiay.Properties.Resources.NhanVien1;
             this.mtNhanVien.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mtNhanVien.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.mtNhanVien.UseSelectable = true;
             this.mtNhanVien.UseTileImage = true;
             this.mtNhanVien.Click += new System.EventHandler(this.mtNhanVien_Click);
             // 
@@ -155,7 +154,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 483);
-            this.Controls.Add(this.mtDoanhSo);
             this.Controls.Add(this.mtDoanhThu);
             this.Controls.Add(this.mtHoaDonBan);
             this.Controls.Add(this.mtHoaDonNhap);
@@ -165,14 +163,11 @@
             this.Controls.Add(this.mtNhanVien);
             this.Name = "fMain";
             this.Text = "QUẢN LÝ BÁN GIÀY";
-//            this.Load += new System.EventHandler(this.fMain_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroTile mtDoanhSo;
         private MetroFramework.Controls.MetroTile mtDoanhThu;
         private MetroFramework.Controls.MetroTile mtHoaDonBan;
         private MetroFramework.Controls.MetroTile mtHoaDonNhap;

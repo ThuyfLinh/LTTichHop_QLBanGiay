@@ -18,10 +18,16 @@ namespace QLCuaHangGiay_Data.DAO
             private set { instance = value; }
         }
         
-        public DataTable GetKhuyenMai()
+        public List<KhuyenMaiDTO> GetKhuyenMai()
         {
-            DataTable data = DataProvider.Instance.ExecuteQuery("select * from KhuyenMai");
-            return data;
+            List<KhuyenMaiDTO> list = new List<KhuyenMaiDTO>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("select * from KhuyenMai ");
+            foreach (DataRow item in data.Rows)
+            {
+                KhuyenMaiDTO KM = new KhuyenMaiDTO(item);
+                list.Add(KM);
+            }
+            return list;
         }
         public List<KhuyenMaiDTO> SearchKM(string str)
         {
@@ -33,11 +39,6 @@ namespace QLCuaHangGiay_Data.DAO
                 KMList.Add(tenKM);
             }
             return KMList;
-        }
-        public int SelectID()
-        {
-            int result = DataProvider.Instance.ExecuteNonQuery("Select IDGiay from KHUYENMAI");
-            return result;
         }
        
         public int UpdateKM(int idkm, string tenct, string mota, DateTime ngaybd, DateTime ngaykt, float chietkhau)
@@ -60,10 +61,9 @@ namespace QLCuaHangGiay_Data.DAO
 
         public int InsertKM(string tenct, string mota, DateTime ngaybd, DateTime ngaykt, float chietkhau)
         {
-   
-            //string query = string.Format("EXEC USP_InsertKM @ten , @mota , @ngaybd , @ngaykt , @chietkhau ", new object[] { tenct, mota, ngaybd, ngaykt, chietkhau });
+            
             string query = "Insert into KHUYENMAI(TenCT,MoTa,NgayBD,NgayKT,ChietKhau) values (" +
-                "N'"+tenct+"',"+
+                "N'" + tenct + "',"+
                 "N'" + mota + "'," +
                 "'" + ngaybd + "'," +
                 "'" + ngaykt + "'," +
@@ -95,7 +95,7 @@ namespace QLCuaHangGiay_Data.DAO
         {
             foreach (CTKhuyenMai_DTO ct in CTKM)
             {
-                int insert = DataProvider.Instance.ExecuteNonQuery("EXEC USP_ThemCTKM @IDKM , @MaGiay , @ChietKhau ", new object[] { IDKM, ct.MaGiay, ct.ChietKhau });
+                int insert = DataProvider.Instance.ExecuteNonQuery("EXEC USP_ThemCTKM @IDKM , @MaGiay , @ChietKhau ", new object[] { IDKM, ct.MaGiay, ct.CK });
             }
             return 1;
         }

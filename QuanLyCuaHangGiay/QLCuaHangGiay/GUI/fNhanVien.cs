@@ -141,5 +141,59 @@ namespace QLCuaHangGiay.GUI
             dtpNSNV.Text = dgvNhanVien.CurrentRow.Cells["NgaySinh"].Value.ToString();
             txtDiaChi.Text = dgvNhanVien.CurrentRow.Cells["DiaChi"].Value.ToString();
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtIDNV.Text);
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseAddress);
+
+                var url = baseAddress + "NhanVien/" + id;
+                //HTTP PUT
+                var postTask = client.DeleteAsync(url);
+
+                postTask.Wait();
+
+                var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Xóa thành công");
+                }
+
+                Load();
+            }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string TenNV = txtSearch.Text;
+            List<NhanVienDTO> list = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseAddress);
+                //GET  api/NhanVien?TenNV={TenNV}
+                var responseTask = client.GetAsync($"NhanVien?TenNV={TenNV}");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<List<NhanVienDTO>>();
+                    readTask.Wait();
+
+                    list = readTask.Result;
+
+                }
+                else //web api sent error response 
+                {
+                    //log response status here..    
+
+                }
+            }
+            listNV = list;
+            dgvNhanVien.DataSource = listNV;
+        }
     }
 }
