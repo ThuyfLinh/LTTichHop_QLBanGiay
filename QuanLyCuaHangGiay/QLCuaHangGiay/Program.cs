@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TTN;
+using QLCuaHangGiay.GUI;
 
 namespace QLCuaHangGiay
 {
@@ -17,7 +17,7 @@ namespace QLCuaHangGiay
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fMain());
+            Application.Run(new fDangNhap());
         }
     }
 }

@@ -97,9 +97,9 @@ namespace QLCuaHangGiay.GUI
         }
         BindingSource listCTKhuyenMai = new BindingSource();
         List<CTKhuyenMai_DTO> listCT = new List<CTKhuyenMai_DTO>();
+
         private void btnThem_Click(object sender, EventArgs e)
         {
-
             if (txtIDGiay.Text == "" || txtChietKhau.Text == "")
             {
                 MessageBox.Show("Mã giày không tồn tại hoặc không có chiết khấu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);

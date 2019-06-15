@@ -29,11 +29,19 @@ namespace QLCuaHangGiay_Data.DTO
             this.name = Name;
             this.pass = Pass;
         }
-
+        public DangNhapDTO(int IDNV, string Name, string Pass, int PhanQuyen)
+        {
+            this.idnv = IDNV;
+            this.name = Name;
+            this.pass = Pass;
+            this.phanquyen = PhanQuyen;
+        }
         public DangNhapDTO(DataRow row)
         {
+            Int32.TryParse(row["IDNhanVien"].ToString(), out this.idnv);
             this.name = row["Name"].ToString();
             this.pass = row["Pass"].ToString();
+            Int32.TryParse(row["PhanQuyen"].ToString(), out this.phanquyen);
         }
     }
 }

@@ -13,7 +13,6 @@ namespace QLCuaHangGiay.GUI
 {
     public partial class fMain : MetroFramework.Forms.MetroForm
     {
-        public static fMain _frmMain;
         public fMain()
         {
             InitializeComponent();
@@ -75,8 +74,7 @@ namespace QLCuaHangGiay.GUI
             this.Show();
         }
 
-        DangNhapDTO x = new DangNhapDTO();
-        public void CheckPhanQuyen()
+        public void CheckPhanQuyen(DangNhapDTO x)
         {
             if(x.PhanQuyen == 2)
             {
@@ -108,6 +106,11 @@ namespace QLCuaHangGiay.GUI
                 mtHoaDonNhap.Enabled = true;
                 mtKhachHang.Enabled = true;
             }
+        }
+
+        private void fMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

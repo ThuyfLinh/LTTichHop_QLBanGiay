@@ -50,10 +50,9 @@ namespace QLCuaHangGiay.GUI
                     list = readTask.Result;
 
                 }
-                else //web api sent error response 
+                else 
                 {
-                    //log response status here..    
-
+                    
                 }
             }
             return list;

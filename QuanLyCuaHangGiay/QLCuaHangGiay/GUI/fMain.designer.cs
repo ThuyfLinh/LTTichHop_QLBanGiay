@@ -163,6 +163,7 @@
             this.Controls.Add(this.mtNhanVien);
             this.Name = "fMain";
             this.Text = "QUẢN LÝ BÁN GIÀY";
+            this.Load += new System.EventHandler(this.fMain_Load);
             this.ResumeLayout(false);
 
         }

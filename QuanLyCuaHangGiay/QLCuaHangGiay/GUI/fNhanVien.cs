@@ -69,27 +69,38 @@ namespace QLCuaHangGiay.GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string Hoten = txtHoTen.Text;
-            DateTime Ngaysinh = Convert.ToDateTime(dtpNSNV.Text);
-            string Diachi = txtDiaChi.Text;
-
-            NhanVienDTO NV = new NhanVienDTO(Hoten, Ngaysinh, Diachi);
-
-            using (var client = new HttpClient())
+            if (txtHoTen.Text == "" || txtDiaChi.Text == "")
             {
-                client.BaseAddress = new Uri(baseAddress);
+                MessageBox.Show("Sai hoặc thiếu thông tin", "Thông báo", MessageBoxButtons.OK);
+            }
+            else
+            {
+                string Hoten = txtHoTen.Text;
+                DateTime Ngaysinh = Convert.ToDateTime(dtpNSNV.Text);
+                string Diachi = txtDiaChi.Text;
 
-                //HTTP POST
-                var postTask = client.PostAsJsonAsync<NhanVienDTO>("NhanVien", NV);
-                postTask.Wait();
+                NhanVienDTO NV = new NhanVienDTO(Hoten, Ngaysinh, Diachi);
 
-                var result = postTask.Result;
-                if (result.IsSuccessStatusCode)
+                using (var client = new HttpClient())
                 {
-                    MessageBox.Show("Thêm thành công");
-                }
+                    client.BaseAddress = new Uri(baseAddress);
 
-                Load();
+                    //HTTP POST
+                    var postTask = client.PostAsJsonAsync<NhanVienDTO>("NhanVien", NV);
+                    postTask.Wait();
+
+                    var result = postTask.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm nhân viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    Load();
+                }
             }
         }
 
@@ -108,29 +119,50 @@ namespace QLCuaHangGiay.GUI
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            int MaNV = Convert.ToInt32(txtIDNV.Text);
-            string Hoten = txtHoTen.Text;
-            DateTime Ngaysinh = Convert.ToDateTime(dtpNSNV.Text);
-            string Diachi = txtDiaChi.Text;
-
-            NhanVienDTO NV = new NhanVienDTO(MaNV, Hoten, Ngaysinh, Diachi);
-
-            using (var client = new HttpClient())
+            if (txtIDNV.Text == "")
             {
-                client.BaseAddress = new Uri(baseAddress);
+                MessageBox.Show("phải chọn 1 nhân viên để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                if (MessageBox.Show("Bạn có thật sự muốn sửa nhân viên có tên là: " + txtHoTen.Text, "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                    if (txtHoTen.Text == "" || txtDiaChi.Text == "")
+                    {
+                        MessageBox.Show("Sai hoặc thiếu thông tin", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        int MaNV = Convert.ToInt32(txtIDNV.Text);
+                        string Hoten = txtHoTen.Text;
+                        DateTime Ngaysinh = Convert.ToDateTime(dtpNSNV.Text);
+                        string Diachi = txtDiaChi.Text;
 
-                //HTTP PUT
-                var putTask = client.PutAsJsonAsync<NhanVienDTO>("NhanVien", NV);
+                        NhanVienDTO NV = new NhanVienDTO(MaNV, Hoten, Ngaysinh, Diachi);
 
-                putTask.Wait();
+                        using (var client = new HttpClient())
+                        {
+                            client.BaseAddress = new Uri(baseAddress);
 
-                var result = putTask.Result;
-                if (result.IsSuccessStatusCode)
-                {
-                    MessageBox.Show("Sửa thành công");
+                            //HTTP PUT
+                            var putTask = client.PutAsJsonAsync<NhanVienDTO>("NhanVien", NV);
+
+                            putTask.Wait();
+
+                            var result = putTask.Result;
+                            if (result.IsSuccessStatusCode)
+                            {
+                                MessageBox.Show("Sửa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sửa nhân viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            Load();
+                        }
+                    }
                 }
-
-                Load();
             }
         }
 
@@ -144,24 +176,30 @@ namespace QLCuaHangGiay.GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtIDNV.Text);
-            using (var client = new HttpClient())
+            if (MessageBox.Show("Nếu xóa nhân viên sẽ ảnh hưởng đến thông tin hóa đơn .Bạn có thật sự muốn xóa nhân viên có mã là: " + txtHoTen.Text, "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
-                client.BaseAddress = new Uri(baseAddress);
-
-                var url = baseAddress + "NhanVien/" + id;
-                //HTTP PUT
-                var postTask = client.DeleteAsync(url);
-
-                postTask.Wait();
-
-                var result = postTask.Result;
-                if (result.IsSuccessStatusCode)
+                int id = Convert.ToInt32(txtIDNV.Text);
+                using (var client = new HttpClient())
                 {
-                    MessageBox.Show("Xóa thành công");
-                }
+                    client.BaseAddress = new Uri(baseAddress);
 
-                Load();
+                    var url = baseAddress + "NhanVien/" + id;
+                    //HTTP PUT
+                    var postTask = client.DeleteAsync(url);
+
+                    postTask.Wait();
+
+                    var result = postTask.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Xóa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa nhân viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    Load();
+                }
             }
         }
 

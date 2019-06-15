@@ -54,7 +54,6 @@ C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\QLCuaHangGiay.GUI.fHoaDonNhap.resources
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\QLCuaHangGiay.GUI.fKhachHang.resources
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\QLCuaHangGiay.GUI.fKhuyenMai.resources
-C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\TTN.fMain.resources
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\QLCuaHangGiay.GUI.fNhanVien.resources
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\QLCuaHangGiay.Properties.Resources.resources
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\QLCuaHangGiay.csproj.GenerateResource.cache
@@ -62,3 +61,5 @@ C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\QLCuaHangGiay.csproj.CopyComplete
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\QLCuaHangGiay.exe
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\QLCuaHangGiay.pdb
+C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\QLCuaHangGiay.GUI.fDangNhap.resources
+C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay\obj\Debug\QLCuaHangGiay.GUI.fMain.resources

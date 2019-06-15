@@ -68,6 +68,11 @@ namespace QLCuaHangGiay.GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (txtTenGiay.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập tên giày", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string tengiay = txtTenGiay.Text;
             int soluong = Convert.ToInt32(txtSoLuong.Text);
             decimal dongia = Convert.ToDecimal(txtDonGia.Text);
@@ -84,37 +89,57 @@ namespace QLCuaHangGiay.GUI
                 var result = postTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Thêm thành công");
-                }
+                    MessageBox.Show("Thêm giày thành công", "Thông báo", MessageBoxButtons.OK);
 
+                }
+                else
+                {
+                    MessageBox.Show("Thêm giày không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 Load();
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            int idgiay = Convert.ToInt32(txtIDGiay.Text);
-            string tengiay = txtTenGiay.Text;
-            int soluong = Convert.ToInt32(txtSoLuong.Text);
-            decimal dongia = Convert.ToDecimal(txtDonGia.Text);
-
-            Giay_DTO giay = new Giay_DTO(idgiay,tengiay, soluong, dongia);
-            using (var client = new HttpClient())
+            if (txtIDGiay.Text == "")
             {
-                client.BaseAddress = new Uri(baseAddress);
-
-                //HTTP PUT
-                var postTask = client.PutAsJsonAsync<Giay_DTO>("Giay", giay);
-
-                postTask.Wait();
-
-                var result = postTask.Result;
-                if (result.IsSuccessStatusCode)
+                MessageBox.Show("phải chọn 1 giày để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                var xacnhan = MessageBox.Show("bạn có chắc chắn muốn sửa giày : " + txtTenGiay.Text, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (xacnhan == DialogResult.Yes)
                 {
-                    MessageBox.Show("Sửa thành công");
-                }
+                    int idgiay = Convert.ToInt32(txtIDGiay.Text);
+                    string tengiay = txtTenGiay.Text;
+                    int soluong = Convert.ToInt32(txtSoLuong.Text);
+                    decimal dongia = Convert.ToDecimal(txtDonGia.Text);
 
-                Load();
+                    Giay_DTO giay = new Giay_DTO(idgiay, tengiay, soluong, dongia);
+                    using (var client = new HttpClient())
+                    {
+                        client.BaseAddress = new Uri(baseAddress);
+
+                        //HTTP PUT
+                        var postTask = client.PutAsJsonAsync<Giay_DTO>("Giay", giay);
+
+                        postTask.Wait();
+
+                        var result = postTask.Result;
+                        if (result.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show("Sửa giày thành công", "Thông báo", MessageBoxButtons.OK);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sửa giày không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        Load();
+                    }
+                }
             }
         }
 
@@ -142,24 +167,40 @@ namespace QLCuaHangGiay.GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtIDGiay.Text);
-            using (var client = new HttpClient())
+            if (txtIDGiay.Text == "")
             {
-                client.BaseAddress = new Uri(baseAddress);
-
-                var url = baseAddress + "Giay/" + id;  
-                //HTTP PUT 
-                var postTask = client.DeleteAsync(url);
-
-                postTask.Wait();
-
-                var result = postTask.Result;
-                if (result.IsSuccessStatusCode)
+                MessageBox.Show("phải chọn 1 giày để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                var xacnhan = MessageBox.Show("bạn có chắc chắn muốn xóa giày : " + txtTenGiay.Text, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (xacnhan == DialogResult.Yes)
                 {
-                    MessageBox.Show("Xóa thành công");
-                }
+                    int id = Convert.ToInt32(txtIDGiay.Text);
+                    using (var client = new HttpClient())
+                    {
+                        client.BaseAddress = new Uri(baseAddress);
 
-                Load();
+                        var url = baseAddress + "Giay/" + id;
+                        //HTTP PUT 
+                        var postTask = client.DeleteAsync(url);
+
+                        postTask.Wait();
+
+                        var result = postTask.Result;
+                        if (result.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show("Xóa giày thành công!", "Thông báo", MessageBoxButtons.OK);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa giày không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        Load();
+                    }
+                }
             }
         }
 

@@ -21,3 +21,4 @@ C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay_
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay_Data\obj\Debug\QLCuaHangGiay_Data.csproj.CopyComplete
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay_Data\obj\Debug\QLCuaHangGiay_Data.exe
 C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay_Data\obj\Debug\QLCuaHangGiay_Data.pdb
+C:\Users\Think\Desktop\LTTH\LTTichHop_QLBanGiay\QuanLyCuaHangGiay\QLCuaHangGiay_Data\obj\Debug\QLCuaHangGiay_Data.csprojAssemblyReference.cache

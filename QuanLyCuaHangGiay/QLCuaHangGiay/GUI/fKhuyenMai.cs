@@ -113,6 +113,10 @@ namespace QLCuaHangGiay.GUI
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
+            if (txtTenCT.Text == null || dtpTuNgay.Text == null || dtpDenNgay == null || txtChietKhau.Text==null)
+            {
+                MessageBox.Show("Thêm đầy đủ thông tin khuyến mại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             int id = Convert.ToInt32(txtIDKM.Text);
             string tenct = txtTenCT.Text;
             string mota = txtMoTa.Text;
@@ -134,9 +138,13 @@ namespace QLCuaHangGiay.GUI
                 var result = postTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Sửa thành công");
-                }
+                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK);
 
+                }
+                else
+                {
+                    MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 Load();
             }
 

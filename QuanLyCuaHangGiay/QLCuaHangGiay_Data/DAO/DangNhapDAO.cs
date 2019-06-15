@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLCuaHangGiay_Data.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -16,17 +17,24 @@ namespace QLCuaHangGiay_Data.DAO
             get { if (instance == null) instance = new DangNhapDAO(); return instance; }
             private set { instance = value; }
         }
-
-        public int DangNhap(string name, string pass)
+       
+        public List<DangNhapDTO> DangNhap(string name, string pass)
         {
-            string query = string.Format("SELECT COUNT(*) AS SoLuong  FROM NGUOIDUNG WHERE TENDANGNHAP = '{0}' AND MATKHAU = '{1}'", name, pass);
+            List<DangNhapDTO> list = new List<DangNhapDTO>();
+            string query = string.Format("SELECT COUNT(*) AS SoLuong  FROM DANGNHAP WHERE Name = '{0}' AND Pass = '{1}'", name, pass);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             if ((int)data.Rows[0]["SoLuong"] > 0)
             {
-                query = string.Format("SELECT PhanQuyen FROM DANGNHAP WHERE Name = '{0}' AND Pass = '{1}'", name, pass);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query1 = string.Format("SELECT * FROM DANGNHAP WHERE Name = '{0}' AND Pass = '{1}'", name, pass);
+                DataTable data1 = DataProvider.Instance.ExecuteQuery(query1);
+                foreach (DataRow item in data1.Rows)
+                {
+                    DangNhapDTO DN = new DangNhapDTO(item);
+                    list.Add(DN);
+                }
             }
-            return 0;
+            
+            return list;
         }
     }
 }
