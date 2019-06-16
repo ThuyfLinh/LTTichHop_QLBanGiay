@@ -8,11 +8,11 @@ using System.Data;
 
 namespace QLCuaHangGiay_Data.DAO
 {
-    class KhachHang_DAO
+    public class KhachHang_DAO
     {
         private static KhachHang_DAO instance;
 
-        internal static KhachHang_DAO Instance
+        public static KhachHang_DAO Instance
         {
             get { if (instance == null) instance = new KhachHang_DAO(); return instance; }
             private set { instance = value; }

@@ -7,7 +7,7 @@ using System.Data;
 
 namespace QLCuaHangGiay_Data.DTO
 {
-    class KhachHang_DTO
+    public class KhachHang_DTO
     {
         private int makh;
         private string tenkh;

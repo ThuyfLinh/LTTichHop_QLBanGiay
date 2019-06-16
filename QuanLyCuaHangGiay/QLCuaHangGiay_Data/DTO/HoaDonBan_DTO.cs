@@ -7,7 +7,7 @@ using System.Data;
 
 namespace QLCuaHangGiay_Data.DTO
 {
-    class HoaDonBan_DTO
+    public class HoaDonBan_DTO
     {
         private int maHD;
         private string tenNV;

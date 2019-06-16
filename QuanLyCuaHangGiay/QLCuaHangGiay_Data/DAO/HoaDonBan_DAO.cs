@@ -8,7 +8,7 @@ using System.Data;
 
 namespace QLCuaHangGiay_Data.DAO
 {
-    class HoaDonBan_DAO
+    public class HoaDonBan_DAO
     {
         private static HoaDonBan_DAO instance;
 
