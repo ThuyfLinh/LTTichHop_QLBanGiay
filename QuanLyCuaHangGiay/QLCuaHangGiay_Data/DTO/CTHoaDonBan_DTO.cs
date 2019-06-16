@@ -7,7 +7,7 @@ using System.Data;
 
 namespace QLCuaHangGiay_Data.DTO
 {
-    class CTHoaDonBan_DTO
+    public class CTHoaDonBan_DTO
     {
         private int maHD;
         private int maGiay;

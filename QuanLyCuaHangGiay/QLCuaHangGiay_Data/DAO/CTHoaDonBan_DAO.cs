@@ -8,9 +8,9 @@ using System.Data;
 
 namespace QLCuaHangGiay_Data.DAO
 {
-    class CTHoaDonBan_DAO
+    public class CTHoaDonBan_DAO
     {
-        private static CTHoaDonBan_DAO instance;
+        public static CTHoaDonBan_DAO instance;
 
         public static CTHoaDonBan_DAO Instance
         {
